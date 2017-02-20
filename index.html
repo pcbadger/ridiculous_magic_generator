@@ -1,0 +1,194 @@
+<html>
+    <head>
+      <script src="csv/nameArray.js"></script>
+      <script src="csv/complexColourArray.js"></script>
+      <script src="csv/simpleColourArray.js"></script>
+      <script src="csv/prefixArray.js"></script>
+      <script src="csv/verbArray.js"></script>
+      <script src="csv/monsterArray.js"></script>
+      <script src="csv/adjectivesArray.js"></script>
+      <script src="csv/adjectives2PersonalAttributesArray.js"></script>
+      <script src="csv/adjectives3PrefixArray.js"></script>
+      <script src="csv/adverbsLyArray.js"></script>
+      <script src="csv/animalsArray.js"></script>
+      <script src="csv/bandsMetalArray.js"></script>
+      <script src="csv/bands2ChristianArray.js"></script>
+      <script src="csv/bodypartsArray.js"></script>
+      <script src="csv/bodyparts2InternalArray.js"></script>
+      <script src="csv/dancesArray.js"></script>
+      <script src="csv/dances2Array.js"></script>
+      <script src="csv/endings1Array.js"></script>
+      <script src="csv/evilWordsArray.js"></script>
+      <script src="csv/misc1Array.js"></script>
+      <script src="csv/misc2Array.js"></script>
+      <script src="csv/misc3PiratesArray.js"></script>
+      <script src="csv/misc4CareBearsArray.js"></script>
+      <script src="csv/misc5MrMenArray.js"></script>
+      <script src="csv/misc6TimeArray.js"></script>
+      <script src="csv/misc7Array.js"></script>
+      <script src="csv/monsters2BuffyArray.js"></script>
+      <script src="csv/negativeWordsArray.js"></script>
+      <script src="csv/placesArray.js"></script>
+      <script src="csv/positiveWordsArray.js"></script>
+      <script src="csv/shapesArray.js"></script>
+      <script src="csv/spellsHarryPotterArray.js"></script>
+      <script src="csv/synonymsExclamationArray.js"></script>
+      <script src="csv/synonymsHappyArray.js"></script>
+      <script src="csv/synonymsLargeArray.js"></script>
+      <script src="csv/synonymsPeopleArray.js"></script>
+      <script src="csv/syonymsStrongArray.js"></script>
+      <script src="csv/verbs2IngArray.js"></script>
+      <script src="csv/verbs1Array.js"></script>
+      <script src="csv/weatherArray.js"></script>
+      <script src="csv/monsterSuffixArray.js"></script>
+      <script src="csv/weaponArray.js"></script>
+      <script src="csv/containerArray.js"></script>
+      <script src="csv/consumableArray.js"></script>
+      <script src="csv/wearableArray.js"></script>
+      <script src="csv/readableArray.js"></script>
+      <script src="csv/musicalArray.js"></script>
+      <script src="csv/plantArray.js"></script>
+      <script src="csv/artArray.js"></script>
+      <script src="csv/potionArray.js"></script>
+      <script src="csv/modernWeaponArray.js"></script>
+      <script src="csv/miscItemArray.js"></script>
+      <script src="csv/genericItemArray.js"></script>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js"></script>
+        <script type="text/javascript">
+      var adverbsLyArray = new Array("");
+      var itemArray = weaponArray.concat(containerArray,consumableArray,wearableArray,readableArray,musicalArray,plantArray,miscItemArray,artArray,potionArray,genericItemArray,genericItemArray,genericItemArray,genericItemArray,genericItemArray,genericItemArray,genericItemArray);
+
+
+      var bigPrefixArray = verbArray.concat(adjectivesArray,adjectives2PersonalAttributesArray,adjectives3PrefixArray,bodypartsArray,evilWordsArray,misc1Array,misc2Array,misc4CareBearsArray,misc5MrMenArray,misc7Array,monsters2BuffyArray,negativeWordsArray,positiveWordsArray,spellsHarryPotterArray,synonymsHappyArray,synonymsLargeArray,synonymsPeopleArray,syonymsStrongArray);
+
+
+      var bigMonsterlessArray = verbArray.concat(monsterArray,adjectivesArray,adjectives2PersonalAttributesArray,adjectives3PrefixArray,adverbsLyArray,animalsArray,bandsMetalArray,bands2ChristianArray,bodypartsArray,bodyparts2InternalArray,dancesArray,dances2Array,endings1Array,evilWordsArray,misc1Array,misc2Array,misc3PiratesArray,misc4CareBearsArray,misc5MrMenArray,misc6TimeArray,misc7Array,monsters2BuffyArray,negativeWordsArray,placesArray,positiveWordsArray,shapesArray,spellsHarryPotterArray,synonymsExclamationArray,synonymsHappyArray,synonymsLargeArray,synonymsPeopleArray,syonymsStrongArray,verbs2IngArray,verbs1Array,weatherArray);
+
+      var bigMonsterGeneratingArray = verbArray.concat(adjectivesArray,adjectives2PersonalAttributesArray,adjectives3PrefixArray,animalsArray,bodypartsArray,bodyparts2InternalArray,dancesArray,dances2Array,endings1Array,evilWordsArray,misc1Array,misc2Array,misc4CareBearsArray,misc5MrMenArray,misc7Array,negativeWordsArray,positiveWordsArray,shapesArray,synonymsHappyArray,synonymsLargeArray,syonymsStrongArray,verbs2IngArray,verbs1Array);
+
+      var biggestArray = bigMonsterlessArray.concat(monsterArray);
+
+      var colourArray = simpleColourArray.concat(complexColourArray);
+
+      var endingArray = endings1Array.concat(evilWordsArray,verbs2IngArray);
+
+      var multiMonsterArray = monsterArray.concat(animalsArray,synonymsPeopleArray);
+
+  function randomIntFromInterval(min,max) {
+          return Math.floor(Math.random()*(max-min+1)+min);
+      };
+
+
+  String.prototype.toProperCase = function () {
+      return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  };
+
+  function GetMagicItem() {
+
+          var randomName = "";
+          var randomPrefix = "";
+          var randomWord3 = "";
+          var randomColour = "";
+          var randomItem = itemArray[Math.floor(Math.random() * itemArray.length)];
+
+
+          var randomWord1 = biggestArray[Math.floor(Math.random() * biggestArray.length)];
+          var randomWord2 = bigMonsterlessArray[Math.floor(Math.random() * bigMonsterlessArray.length)];
+
+
+          if (randomIntFromInterval(1,100) > 65) {
+              var randomName = nameArray[Math.floor(Math.random() * nameArray.length)] + "\'s ";
+              }
+          if (randomIntFromInterval(1,100) > 85) {
+              var randomPrefix = prefixArray[Math.floor(Math.random() * prefixArray.length)] + " ";
+              }
+          if (randomIntFromInterval(1,100) > 50) {
+              var randomColour = colourArray[Math.floor(Math.random() * colourArray.length)] + " ";
+              }
+          if (randomIntFromInterval(1,100) > 75) {
+              var randomWord3 = endingArray[Math.floor(Math.random() * endingArray.length)];
+              }
+          if (randomIntFromInterval(1,100) > 60) {
+              var randomWord1 = bigPrefixArray[Math.floor(Math.random() * bigPrefixArray.length)];
+              }
+
+          var fullItem = randomName.toProperCase() + randomColour.toProperCase() + randomPrefix.toProperCase() + randomItem.toProperCase() + " of " + randomWord1.toProperCase() + " " + randomWord2.toProperCase() + " " + randomWord3.toProperCase();
+          return fullItem;
+      }
+
+  function GetMonster() {
+
+          var randomPrefix = "";
+          var randomWord2 = "";
+          var randomColour = "";
+          var randomMonster = "";
+          var monsterSuffix = "";
+          var monsterWeapon = "";
+          var modernWeapon = "";
+
+          var randomWord1 = bigMonsterGeneratingArray[Math.floor(Math.random() * bigMonsterGeneratingArray.length)];
+          var randomMonster = multiMonsterArray[Math.floor(Math.random() * monsterArray.length)];
+
+          if (randomIntFromInterval(1,100) > 94) {
+              var monsterWeapon = weaponArray[Math.floor(Math.random() * weaponArray.length)] + " weilding ";
+              }
+
+          if (randomIntFromInterval(1,100) > 98) {
+              var monsterWeapon = modernWeaponArray[Math.floor(Math.random() * modernWeaponArray.length)] + " weilding ";
+              }
+
+          if (randomIntFromInterval(1,100) > 85) {
+              var randomPrefix = prefixArray[Math.floor(Math.random() * prefixArray.length)] + " ";
+              }
+          if (randomIntFromInterval(1,100) > 60) {
+              var randomColour = simpleColourArray[Math.floor(Math.random() * simpleColourArray.length)] + " ";
+              }
+          if (randomIntFromInterval(1,100) > 90) {
+              var randomColour = colourArray[Math.floor(Math.random() * colourArray.length)] + " ";
+              }
+    
+          if (randomIntFromInterval(1,100) > 90) {
+              var randomWord2 = bigMonsterGeneratingArray[Math.floor(Math.random() * bigMonsterGeneratingArray.length)] + " ";
+              }
+
+          if (randomIntFromInterval(1,100) > 98) {
+              var monsterSuffix = " " + monsterSuffixArray[Math.floor(Math.random() * monsterSuffixArray.length)];
+              }
+
+
+          var fullItem = monsterWeapon.toProperCase() + randomPrefix.toProperCase() + randomColour.toProperCase() + randomWord1.toProperCase() + " " + randomWord2.toProperCase() + randomMonster.toProperCase() + monsterSuffix.toProperCase();
+          return fullItem;
+      }
+
+      function GetTenItems() {
+          var multiItem = "";
+          var i = 1;
+          while (i < 10) {
+              multiItem += "<br>" + i + " - " + GetMagicItem()
+              i++;
+
+              }
+          document.getElementById("magicItems").innerHTML = multiItem;
+          }
+
+      function GetTenMonsters() {
+          var multiMonster = "";
+          var i = 1;
+          while (i < 10) {
+              multiMonster += "<br>" + i + " - " + GetMonster()
+              i++;
+
+              }
+          document.getElementById("magicMonsters").innerHTML = multiMonster;
+          }
+
+     </script>
+    </head>
+    <body>
+<p id="magicItems"></p>
+<input type="button" id="btnSearch" value="Items" onclick="GetTenItems()" />
+<p id="magicMonsters"></p>
+<input type="button" id="btnSearch" value="Monsters" onclick="GetTenMonsters()" />
+
+</body>
+</html>
